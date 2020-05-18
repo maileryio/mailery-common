@@ -1,16 +1,17 @@
 {
-    "name": "maileryio/_____",
+    "name": "maileryio/mailery-common",
     "type": "library",
-    "description": "_____",
+    "description": "Common module for Mailery Platform",
     "keywords": [
-        "_____"
+        "mail",
+        "mailer"
     ],
-    "homepage": "https://github.com/maileryio/_____",
+    "homepage": "https://github.com/maileryio/mailery-common",
     "license": "BSD-3-Clause",
     "support": {
-        "source": "https://github.com/maileryio/_____",
-        "issues": "https://github.com/maileryio/_____/issues",
-        "wiki": "https://github.com/maileryio/_____/wiki"
+        "source": "https://github.com/maileryio/mailery-common",
+        "issues": "https://github.com/maileryio/mailery-common/issues",
+        "wiki": "https://github.com/maileryio/mailery-common/wiki"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -25,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Mailery\\_____\\": "src"
+            "Mailery\\Common\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Mailery\\_____\\Tests\\": "tests"
+            "Mailery\\Common\\Tests\\": "tests"
         }
     },
     "scripts": {
