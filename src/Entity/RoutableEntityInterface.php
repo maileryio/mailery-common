@@ -5,9 +5,9 @@ namespace Mailery\Common\Entity;
 interface RoutableEntityInterface
 {
     /**
-     * @return string
+     * @return string|null
      */
-    public function getViewRouteName(): string;
+    public function getViewRouteName(): ?string;
 
     /**
      * @return array
@@ -15,9 +15,9 @@ interface RoutableEntityInterface
     public function getViewRouteParams(): array;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEditRouteName(): string;
+    public function getEditRouteName(): ?string;
 
     /**
      * @return array
