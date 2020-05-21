@@ -22,7 +22,7 @@ class BaseMapper extends ChainedMapper
     protected function getChainItemList(): ChainItemList
     {
         $itemList = parent::getChainItemList();
-        $itemList->addItem(new Timestamped('created_at', 'updated_at'));
+        $itemList->add(new Timestamped('created_at', 'updated_at'));
 
         return $itemList;
     }
