@@ -1,6 +1,6 @@
 <?php
 
-use Mailery\Common\Setting\CommonSettingGroup;
+use Mailery\Common\Setting\GeneralSettingGroup;
 use Mailery\Setting\Form\SettingForm;
 use Yiisoft\Factory\Definitions\Reference;
 use Yiisoft\Form\Widget\Field;
@@ -14,19 +14,22 @@ use Yiisoft\Validator\Rule\Email;
 return [
     'maileryio/mailery-setting' => [
         'groups' => [
-            Reference::to(CommonSettingGroup::class),
+            Reference::to(GeneralSettingGroup::class),
         ],
     ],
 
     'maileryio/mailery-common' => [
         'settings' => [
-            CommonSettingGroup::PARAM_NO_REPLY_EMAIL => [
-                'name' => CommonSettingGroup::PARAM_NO_REPLY_EMAIL,
+            GeneralSettingGroup::PARAM_NO_REPLY_EMAIL => [
+                'name' => GeneralSettingGroup::PARAM_NO_REPLY_EMAIL,
                 'label' => static function () {
                     return 'System no-reply email address';
                 },
+                'description' => static function () {
+                    return 'This email address is used as the sender without the need to reply';
+                },
                 'field' => static function (Field $field, SettingForm $form) {
-                    return $field->config($form, CommonSettingGroup::PARAM_NO_REPLY_EMAIL);
+                    return $field->config($form, GeneralSettingGroup::PARAM_NO_REPLY_EMAIL);
                 },
                 'rules' => static function () {
                     return [

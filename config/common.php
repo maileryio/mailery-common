@@ -1,9 +1,9 @@
 <?php
 
-use Mailery\Common\Setting\CommonSettingGroup;
+use Mailery\Common\Setting\GeneralSettingGroup;
 
 return [
-    CommonSettingGroup::class => [
+    GeneralSettingGroup::class => [
         '__construct()' => [
             'items' => $params['maileryio/mailery-common']['settings'],
         ],
