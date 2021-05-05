@@ -7,6 +7,16 @@ interface RoutableEntityInterface
     /**
      * @return string|null
      */
+    public function getIndexRouteName(): ?string;
+
+    /**
+     * @return array
+     */
+    public function getIndexRouteParams(): array;
+
+    /**
+     * @return string|null
+     */
     public function getViewRouteName(): ?string;
 
     /**
@@ -23,4 +33,14 @@ interface RoutableEntityInterface
      * @return array
      */
     public function getEditRouteParams(): array;
+
+    /**
+     * @return string|null
+     */
+    public function getDeleteRouteName(): ?string;
+
+    /**
+     * @return array
+     */
+    public function getDeleteRouteParams(): array;
 }
