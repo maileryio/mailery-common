@@ -34,8 +34,8 @@ return [
                 'rules' => static function () {
                     return [
                         new RequiredHtmlOptions(Required::rule()),
-                        new HasLengthHtmlOptions(HasLength::rule()->max(255)),
                         new EmailHtmlOptions((Email::rule())),
+                        new HasLengthHtmlOptions(HasLength::rule()->max(255)),
                     ];
                 },
                 'value' => 'no-reply@mailery.io',
