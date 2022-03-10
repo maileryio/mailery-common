@@ -2,7 +2,7 @@
 
 use Mailery\Common\Setting\GeneralSettingGroup;
 use Mailery\Setting\Form\SettingForm;
-use Yiisoft\Factory\Definition\Reference;
+use Yiisoft\Definitions\Reference;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Form\HtmlOptions\RequiredHtmlOptions;
 use Yiisoft\Form\HtmlOptions\HasLengthHtmlOptions;
