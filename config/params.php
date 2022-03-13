@@ -4,9 +4,6 @@ use Mailery\Common\Setting\GeneralSettingGroup;
 use Mailery\Setting\Form\SettingForm;
 use Yiisoft\Definitions\Reference;
 use Yiisoft\Form\Widget\Field;
-use Yiisoft\Form\HtmlOptions\RequiredHtmlOptions;
-use Yiisoft\Form\HtmlOptions\HasLengthHtmlOptions;
-use Yiisoft\Form\HtmlOptions\EmailHtmlOptions;
 use Yiisoft\Validator\Rule\Required;
 use Yiisoft\Validator\Rule\HasLength;
 use Yiisoft\Validator\Rule\Email;
@@ -29,13 +26,13 @@ return [
                     return 'This email address is used as the sender without the need to reply';
                 },
                 'field' => static function (Field $field, SettingForm $form) {
-                    return $field->config($form, GeneralSettingGroup::PARAM_NO_REPLY_EMAIL);
+                    return $field->email($form, GeneralSettingGroup::PARAM_NO_REPLY_EMAIL);
                 },
                 'rules' => static function () {
                     return [
-                        new RequiredHtmlOptions(Required::rule()),
-                        new EmailHtmlOptions((Email::rule())),
-                        new HasLengthHtmlOptions(HasLength::rule()->max(255)),
+                        Required::rule(),
+                        Email::rule(),
+                        HasLength::rule()->max(255),
                     ];
                 },
                 'value' => 'no-reply@mailery.io',
