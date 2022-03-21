@@ -23,7 +23,7 @@ return [
                     return 'System no-reply email address';
                 },
                 'description' => static function () {
-                    return 'This email address is used as the sender without the need to reply';
+                    return 'This email address is used as the system sender without the need to reply';
                 },
                 'field' => static function (Field $field, SettingForm $form) {
                     return $field->email($form, GeneralSettingGroup::PARAM_NO_REPLY_EMAIL);
