@@ -7,6 +7,7 @@ use Mailery\Setting\Model\SettingInterface;
 
 class GeneralSettingGroup extends SettingGroup
 {
+
     public const PARAM_NO_REPLY_EMAIL = 'no-reply-email';
 
     /**
@@ -24,4 +25,5 @@ class GeneralSettingGroup extends SettingGroup
     {
         return 'General';
     }
+
 }

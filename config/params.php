@@ -11,31 +11,30 @@ use Yiisoft\Validator\Rule\Email;
 return [
     'maileryio/mailery-setting' => [
         'groups' => [
-            Reference::to(GeneralSettingGroup::class),
-        ],
-    ],
-
-    'maileryio/mailery-common' => [
-        'settings' => [
-            GeneralSettingGroup::PARAM_NO_REPLY_EMAIL => [
-                'name' => GeneralSettingGroup::PARAM_NO_REPLY_EMAIL,
-                'label' => static function () {
-                    return 'System no-reply email address';
-                },
-                'description' => static function () {
-                    return 'This email address is used as the system sender without the need to reply';
-                },
-                'field' => static function (Field $field, SettingForm $form) {
-                    return $field->email($form, GeneralSettingGroup::PARAM_NO_REPLY_EMAIL);
-                },
-                'rules' => static function () {
-                    return [
-                        Required::rule(),
-                        Email::rule(),
-                        HasLength::rule()->max(255),
-                    ];
-                },
-                'value' => 'no-reply@mailery.io',
+            'general' => [
+                'reference' => Reference::to(GeneralSettingGroup::class),
+                'items' => [
+                    GeneralSettingGroup::PARAM_NO_REPLY_EMAIL => [
+                        'name' => GeneralSettingGroup::PARAM_NO_REPLY_EMAIL,
+                        'label' => static function () {
+                            return 'System no-reply email address';
+                        },
+                        'description' => static function () {
+                            return 'This email address is used as the system sender without the need to reply';
+                        },
+                        'field' => static function (Field $field, SettingForm $form) {
+                            return $field->email($form, GeneralSettingGroup::PARAM_NO_REPLY_EMAIL);
+                        },
+                        'rules' => static function () {
+                            return [
+                                Required::rule(),
+                                Email::rule(),
+                                HasLength::rule()->max(255),
+                            ];
+                        },
+                        'value' => 'no-reply@mailery.io',
+                    ],
+                ]
             ],
         ],
     ],
