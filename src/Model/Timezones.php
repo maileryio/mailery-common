@@ -16,7 +16,7 @@ class Timezones
     /**
      * @var bool
      */
-    private bool $offsets = true;
+    private bool $offset = false;
 
     /**
      * @var string|null
@@ -36,13 +36,13 @@ class Timezones
     }
 
     /**
-     * @param bool $offsets
+     * @param bool $offset
      * @return self
      */
-    public function withOffsets(bool $offsets): self
+    public function withOffset(bool $offset): self
     {
         $new = clone $this;
-        $new->offsets = $offsets;
+        $new->offset = $offset;
 
         return $new;
     }
@@ -67,7 +67,7 @@ class Timezones
         $nearest = $this->getNearest();
 
         $identifiers = \DateTimeZone::listIdentifiers();
-        $identifiers = $this->getWithOffsets(array_combine($identifiers, $identifiers));
+        $identifiers = $this->getWithOffset(array_combine($identifiers, $identifiers));
 
         if ($this->groups === false) {
             $nearest = $nearest;
@@ -103,16 +103,25 @@ class Timezones
 
         $identifiers = DateTimeZone::listIdentifiers(DateTimeZone::PER_COUNTRY, $this->countryCode);
 
-        return $this->getWithOffsets(array_combine($identifiers, $identifiers));
+        return $this->getWithOffset(array_combine($identifiers, $identifiers));
+    }
+
+    /**
+     * @param string $code
+     * @return string|null
+     */
+    public function getLabel(string $code): ?string
+    {
+        return $this->getWithOffset(array_combine([$code], [$code]))[$code] ?? null;
     }
 
     /**
      * @param array $identifiers
      * @return array
      */
-    private function getWithOffsets(array $identifiers): array
+    private function getWithOffset(array $identifiers): array
     {
-        if ($this->offsets === false) {
+        if ($this->offset === false) {
             return $identifiers;
         }
 
