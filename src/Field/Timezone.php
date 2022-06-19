@@ -24,7 +24,7 @@ class Timezone
     private function __construct(
         private string $value
     ) {
-        if (!in_array($value, self::getCodes())) {
+        if (!in_array($value, self::getValues())) {
             throw new \InvalidArgumentException('Invalid passed value: ' . $value);
         }
     }
@@ -91,7 +91,7 @@ class Timezone
     /**
      * @return array
      */
-    private static function getCodes(): array
+    private static function getValues(): array
     {
         return array_keys((new Timezones())->getAll());
     }
