@@ -3,7 +3,7 @@
 use Mailery\Common\Setting\GeneralSettingGroup;
 use Mailery\Setting\Form\SettingForm;
 use Yiisoft\Definitions\Reference;
-use Yiisoft\Form\Widget\Field;
+use Yiisoft\Form\Field;
 use Yiisoft\Validator\Rule\Required;
 use Yiisoft\Validator\Rule\HasLength;
 use Yiisoft\Validator\Rule\Email;
@@ -22,8 +22,8 @@ return [
                         'description' => static function () {
                             return 'This email address is used as the system sender without the need to reply';
                         },
-                        'field' => static function (Field $field, SettingForm $form) {
-                            return $field->email($form, GeneralSettingGroup::PARAM_NO_REPLY_EMAIL);
+                        'field' => static function (SettingForm $form) {
+                            return Field::email($form, GeneralSettingGroup::PARAM_NO_REPLY_EMAIL);
                         },
                         'rules' => static function () {
                             return [
